@@ -8,6 +8,7 @@ import PopupInfo from '../PopupInfo/PopupInfo';
 
 function App() {
   const [loggedIn, setIsLoggedIn] = React.useState(false);
+  const [signedUp, setIsSignedUp] = React.useState(false);
   const [isCardListShown, setIsCardListShown] = React.useState(true);
   const [isPreloaderShown, setIsPreloaderShown] = React.useState(false);
   const [isNotFoundShown, setIsNotFoundShown] = React.useState(false);
@@ -27,6 +28,10 @@ function App() {
     setIsLoggedIn(true);
   }
 
+  function handleIsSignedUp() {
+    setIsSignedUp(true);
+  }
+
   function handleIsCardListShown() {
     setIsCardListShown(false);
   }
@@ -40,21 +45,21 @@ function App() {
   }
 
   function handlePopupLoginOpen() {
-    setIsPopupLoginOpen(true)
+    setIsPopupLoginOpen(true);
   }
 
   function handlePopupRegisterOpen() {
-    setIsPopupRegisterOpen(true)
+    setIsPopupRegisterOpen(true);
   }
 
   function handlePopupInfoOpen() {
-    setIsPopupInfoOpen(true)
+    setIsPopupInfoOpen(true);
   }
 
   function closeAllPopups() {
-    setIsPopupLoginOpen(false)
-    setIsPopupRegisterOpen(false)
-    setIsPopupInfoOpen(false)
+    setIsPopupLoginOpen(false);
+    setIsPopupRegisterOpen(false);
+    setIsPopupInfoOpen(false);
   }
 
   function closingPopupsByOverlay(evt) {
@@ -82,7 +87,7 @@ function App() {
         isPopupRegisterOpen={isPopupRegisterOpen}
         isPopupInfoOpen={isPopupInfoOpen}
         closeAllPopups={closeAllPopups}
-        handlePopupLoginOpen={handlePopupLoginOpen}
+        handlePopupRegisterOpen={handlePopupRegisterOpen}
       />
       <Main 
         loggedIn={loggedIn}
@@ -106,11 +111,14 @@ function App() {
         title={'Регистрация'}
         changeRegisterToLogin={changeRegisterToLogin}
         closingPopupsByOverlay={closingPopupsByOverlay}
+        handleIsSignedUp={handleIsSignedUp}
+        handlePopupInfoOpen={handlePopupInfoOpen}
       />
       <PopupInfo 
         isOpen={isPopupInfoOpen}
         onClose={closeAllPopups}
         closingPopupsByOverlay={closingPopupsByOverlay}
+        handlePopupLoginOpen={handlePopupLoginOpen}
       />
     </div>
   );

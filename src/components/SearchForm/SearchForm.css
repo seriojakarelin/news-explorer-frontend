@@ -1,0 +1,101 @@
+.search-form {
+    width: calc((608 / 1440) * 100%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 0 80px;
+}
+
+.search-form__title {
+    text-align: left;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.07;
+    color: #fff;
+    margin: 0 0 25px;
+}
+
+.search-form__text {
+    text-align: left;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.33;
+    color: #fff;
+    margin: 0 0 71px;
+}
+
+.search-form__search-line {
+    position: relative;
+}
+
+.search-form__input {
+    border: 1px solid #d1d2d6;
+    border-radius: 100px;
+    width: 100%;
+    height: 64px;
+    padding-left: 24px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .25));
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: #1a1b22;
+    box-sizing: border-box;
+}
+
+.search-form__submit-button {
+    border: none;
+    background-color: #2f71e5;
+    border-radius: 100px;
+    width: 28%;
+    height: 64px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color .3s linear;
+}
+
+.search-form__submit-button:hover {
+    background-color: #347eff;
+}
+
+@media screen and (max-width: 970px) {
+    .search-form {
+        width: calc((452 / 768) * 100%);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search-form {
+        padding-top: 30px;
+        width: 90%;
+        padding-bottom: 32px;
+    }
+
+    .search-form__input {
+        padding-left: 16px;
+        margin-bottom: 16px;
+    }
+
+    .search-form__submit-button {
+        position: static;
+        width: 100%;
+        height: 56px;
+    }
+
+    .search-form__text {
+        margin: 0 0 122px;
+    }
+}

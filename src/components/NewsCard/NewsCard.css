@@ -1,0 +1,241 @@
+.news-card {
+    width: 400px;
+    margin: 0 0 16px;
+    background-color: #fff;
+    border-radius: 10px;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(0px 2px 2px rgba(8, 29, 45, 0.1));
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.news-card__picture {
+    object-fit: cover;
+    object-position: center;
+    height: 272px;
+    width: 100%;
+}
+
+.news-card__caption {
+    width: 88%;
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card__date {
+    margin: 0 0 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #B6BCBF;
+}
+
+.news-card__title {
+    margin: 0 0 16px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.15;
+    color: #1A1B22;
+}
+
+.news-card__text {
+    margin: 0 0 18px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: #1A1B22;
+}
+
+.news-card__source {
+    margin: 0;
+    font-family: 'Roboto Slab', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #B6BCBF;
+}
+
+.news-card__save-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: #FFF;
+    background-image: url(../../images/bookmark_normal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-image .3s linear;
+}
+
+.news-card__save-button:hover {
+    background-image: url(../../images/bookmark_hover.svg);
+}
+
+.news-card__save-button_marked {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: #FFF;
+    background-image: url(../../images/bookmark_marked.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-image .3s linear;
+}
+
+.news-card__trash-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: #FFF;
+    background-image: url(../../images/trash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-image .3s linear;
+}
+
+.news-card__trash-button:hover {
+    background-image: url(../../images/trash_hover.svg);
+}
+
+.news-card__save-button::after {
+    content: "Войдите, чтобы сохранять статьи";
+    background-color: #FFF;
+    position: absolute;
+    width: 182px;
+    top: 0;
+    right: 45px;
+    border-radius: 10px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.17;
+    padding-bottom: 14px;
+    padding-top: 15px;
+    visibility: hidden;
+}
+
+.news-card__trash-button::after {
+    content: "Погода";
+    background-color: #FFF;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 276px;
+    border-radius: 10px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.17;
+    padding: 8px 12px 8px;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.news-card__trash-button:hover::before {
+    content: "Убрать из сохранённых";
+    background-color: #FFF;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 42px;
+    border-radius: 10px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    padding: 8px 12px 8px;
+    box-sizing: border-box;
+    height: 40px;
+    min-width: 159px;
+}
+
+.news-card__save-button_type_login::after {
+    content: none;
+}
+
+.news-card__save-button:hover::after {
+    visibility: visible;
+}
+
+@media screen and (max-width: 970px) {
+    .news-card {
+        width: 224px;
+    }
+
+    .news-card__save-button {
+        top: 8px;
+        right: 8px;
+    }
+
+    .news-card__trash-button {
+        top: 8px;
+        right: 8px;
+    }
+
+    .news-card__save-button_marked {
+        top: 8px;
+        right: 8px;
+    }
+
+    .news-card__picture {
+        height: 150px;
+    }
+
+    .news-card__title {
+        font-size: 22px;
+    }
+
+    .news-card__text {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical; 
+        max-height: 88px;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .news-card {
+        width: 288px;
+    }
+}

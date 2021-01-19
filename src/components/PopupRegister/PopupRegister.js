@@ -1,5 +1,6 @@
 import React from 'react';
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import * as Auth from '../Auth/Auth';
 
 function PopupRegister(props) {
     const [email, setEmail] = React.useState('');
@@ -16,6 +17,17 @@ function PopupRegister(props) {
 
     function handleUserNameChange(e) {
         setUserName(e.target.value);
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+
+        Auth.register(userName, email, password).then((res) => {
+            if (res) {
+                props.handleIsSignedUp();
+                props.handlePopupInfoOpen();
+            }
+        })
     }
 
 
@@ -43,7 +55,7 @@ function PopupRegister(props) {
                     <input className="popup__input" type="text" value={userName} onChange={handleUserNameChange} placeholder="Введите имя" required minLength="2" maxLength="30" />
                     <span className="popup__error">Неправильно введено имя</span>
                 </label>
-                <button className="popup__button popup__button_type_login popup__button_blocked">Зарегистрироваться</button>
+                <button className="popup__button popup__button_type_login popup__button_blocked" onClick={handleSubmit}>Зарегистрироваться</button>
                 <p className="popup__text">или <span className="popup__link" onClick={props.changeRegisterToLogin}>Войти</span></p>
             </>
         </PopupWithForm>

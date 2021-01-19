@@ -9,7 +9,7 @@ function AppHeader(props) {
             <Navigation 
               loggedIn={props.loggedIn}
               menuIsOpened={props.menuIsOpened}
-              handlePopupLoginOpen={props.handlePopupLoginOpen}
+              handlePopupRegisterOpen={props.handlePopupRegisterOpen}
             />
             {props.menuIsOpened || props.isPopupOpened
             ?

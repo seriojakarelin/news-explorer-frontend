@@ -20,7 +20,7 @@ function Navigation(props) {
                         <img src={location.pathname === '/saved-news' ? logoutWhiteLogo : logoutLogo} alt="иконка выхода из профиля" />
                     </button>
                 :
-                    <button className={props.menuIsOpened ? (location.pathname === '/saved-news' ? "navigation__button navigation__button_theme_white" : "navigation__button") : "navigation__button"} onClick={props.handlePopupLoginOpen}>Авторизоваться</button>
+                    <button className={props.menuIsOpened ? (location.pathname === '/saved-news' ? "navigation__button navigation__button_theme_white" : "navigation__button") : "navigation__button"} onClick={props.handlePopupRegisterOpen}>Авторизоваться</button>
             }
         </nav> 
         );

@@ -28,7 +28,7 @@ function MainPageHeader(props) {
               isPopupOpened={isPopupOpened}
               handleExitButton={handleExitButton}
               handleMenuIsOpened={handleMenuIsOpened}
-              handlePopupLoginOpen={props.handlePopupLoginOpen}
+              handlePopupRegisterOpen={props.handlePopupRegisterOpen}
             />
             <SearchForm />
           </Route>
@@ -39,7 +39,7 @@ function MainPageHeader(props) {
               menuIsOpened={menuIsOpened}
               handleExitButton={handleExitButton}
               isPopupOpened={isPopupOpened}
-              handlePopupLoginOpen={props.handlePopupLoginOpen}
+              handlePopupRegisterOpen={props.handlePopupRegisterOpen}
             />
             <SavedNewsInfo />
           </Route>

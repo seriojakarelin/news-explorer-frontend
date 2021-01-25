@@ -24,11 +24,11 @@ function App() {
   const [isPopupRegisterOpen, setIsPopupRegisterOpen] = React.useState(false);
   const [isPopupInfoOpen, setIsPopupInfoOpen] = React.useState(false);
   const [isLoadComplete, setIsLoadComplete] = React.useState(false);
-  const [blockArticles, setBlockArticles] = React.useState([]);
 
   console.log(articlesData)
   console.log(savedArticles)
   console.log(loggedIn)
+  console.log(isNotFoundShown)
 
   React.useEffect(() => {
     window.addEventListener('keyup', (e) => {
@@ -71,19 +71,22 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    if (localStorage.getItem('search-value')) {
+    const storageArticles = Array.from(JSON.parse(localStorage.getItem('articles')));
+    console.log(storageArticles)
+    if (storageArticles.length === 0) {
+      setSearchValue(localStorage.getItem('search-value'));
+      setIsCardListShown(false);
+    } else {
       setSearchValue(localStorage.getItem('search-value'))
-      const storageArticles = JSON.parse(localStorage.getItem('articles'))
       displayArticles(storageArticles || []);
-      setIsCardListShown(true)
+      setIsCardListShown(true);
     }
   }, []);
 
-  function displayArticles() {
-    console.log(articlesData)
-    setBlockArticles(articlesData.splice(0, articlesAmount));
-    console.log(blockArticles)
-    return blockArticles;
+  function displayArticles(arr) {
+    const storageArticles = JSON.parse(localStorage.getItem('articles'))
+    setArticlesData(storageArticles.splice(0, articlesAmount));
+    return articlesData;
   }
 
   function handleLoggedIn() {
@@ -157,7 +160,6 @@ function App() {
             savedArticles={savedArticles}
             setSavedArticles={setSavedArticles}
             isSavedCardListShown={isSavedCardListShown}
-            blockArticles={blockArticles}
             displayArticles={displayArticles}
           />
           <Footer />

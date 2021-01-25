@@ -23,7 +23,6 @@ function Main(props) {
             setSavedArticles={props.setSavedArticles}
             isSavedCardListShown={props.isSavedCardListShown}
             handleSaveArticle={props.handleSaveArticle}
-            blockArticles={props.blockArticles}
             displayArticles={props.displayArticles}
         />
         }

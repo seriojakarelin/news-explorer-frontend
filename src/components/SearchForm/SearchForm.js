@@ -6,6 +6,8 @@ function SearchForm(props) {
   const [isSearchFormValid, setSearchFormValid] = React.useState(false);
   const [isErrorShown, setErrorShown] = React.useState(false);
 
+  console.log(props.articlesData)
+
   function checkValidity(inputValue) {
     if (inputValue.validity.valueMissing) {
       setErrorShown(true);
@@ -26,17 +28,16 @@ function SearchForm(props) {
     props.setIsPreloaderShown(true);
     return NewsApi.getNews(props.searchValue, today, sevenDaysPeriod)
     .then((res) => {
-      const articlesSent = Array.from(res.articles)
-      if (articlesSent.length !== 0) {
+      if (res.articles.length !== 0) {
         props.setIsPreloaderShown(false);
         props.setIsNotFoundShown(false);
         props.setIsCardListShown(true);
-        props.setArticlesData(articlesSent);
-        props.displayArticles();
-        console.log(props.articlesData)
         localStorage.setItem('articles', JSON.stringify(res.articles));
+        props.displayArticles(localStorage.getItem('articles'));
       }
-      if (articlesSent.length === 0) {
+      if (res.articles.length === 0) {
+        localStorage.setItem('articles', JSON.stringify(res.articles));
+        props.setIsPreloaderShown(false);
         props.setIsCardListShown(false);
         props.setIsNotFoundShown(true);
       }

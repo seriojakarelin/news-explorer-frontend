@@ -34,7 +34,7 @@ function NewsCardList(props) {
         <section className={props.isCardListShown ? "news-card-list" : "news-card-list_disabled"}>
                 <h2 className="news-card-list__heading">Результаты поиска</h2>
                     <ul className="news-card-list__list">
-                        {props.blockArticles.map((article) => 
+                        {props.articlesData.map((article) => 
                             <NewsCard 
                                 key={article.url}
                                 link={article.url}

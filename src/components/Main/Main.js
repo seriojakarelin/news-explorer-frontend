@@ -8,18 +8,30 @@ import NotFound from '../NotFound/NotFound';
 function Main(props) {
   return (
     <section className="main">
-        <NewsCardList 
-            loggedIn={props.loggedIn}
-            isCardListShown={props.isCardListShown}
-        />
+        {props.isPreloaderShown
+        ?
         <Preloader 
             isPreloaderShown={props.isPreloaderShown}
         />
-        <NotFound 
-            isNotFoundShown={props.isNotFoundShown}
+        :
+        <NewsCardList 
+            loggedIn={props.loggedIn}
+            isCardListShown={props.isCardListShown}
+            articlesData={props.articlesData}
+            searchValue={props.searchValue}
+            savedArticles={props.savedArticles}
+            setSavedArticles={props.setSavedArticles}
+            isSavedCardListShown={props.isSavedCardListShown}
+            handleSaveArticle={props.handleSaveArticle}
+            blockArticles={props.blockArticles}
+            displayArticles={props.displayArticles}
         />
+        }
         <Switch>
             <Route exact path="/">
+                <NotFound 
+                    isNotFoundShown={props.isNotFoundShown}
+                />
                 <About />
             </Route>
         </Switch>

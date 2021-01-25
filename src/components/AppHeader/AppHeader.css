@@ -50,6 +50,7 @@
     box-shadow: none;
     cursor: pointer;
     transition: background-image .3s linear;
+    outline: none;
 }
 
 .app-header__button_theme_white {

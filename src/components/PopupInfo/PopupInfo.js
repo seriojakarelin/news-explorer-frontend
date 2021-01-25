@@ -1,7 +1,9 @@
 import React from 'react';
 
 function PopupInfo(props) {
+  
     function onEnterClick() {
+      props.setIsPopupInfoOpen(false);
       props.handlePopupLoginOpen();
     }
 

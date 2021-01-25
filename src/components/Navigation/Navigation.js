@@ -3,9 +3,16 @@ import { NavLink } from 'react-router-dom';
 import logoutLogo from '../../images/logout.svg';
 import logoutWhiteLogo from '../../images/logout_white.svg';
 import { useLocation } from "react-router-dom";
+import {CurrentUserContext} from '../../context/CurrentUserContext';
 
 function Navigation(props) {
     const location = useLocation();
+    const currentUser = React.useContext(CurrentUserContext);
+
+    function signOut() {
+        localStorage.removeItem('jwt');
+        props.setIsLoggedIn(false);
+    }
 
     return (
         <nav className={props.menuIsOpened ? (location.pathname === '/saved-news' ? "navigation_mobile navigation_mobile_theme_white" : "navigation_mobile") : "navigation navigation_invisible"}>
@@ -15,8 +22,8 @@ function Navigation(props) {
             }
             {
                 props.loggedIn ? 
-                    <button className={location.pathname === '/saved-news' ? "navigation__button navigation__button_theme_white" : "navigation__button"}>
-                        <p className={location.pathname === '/saved-news' ? "navigation__user-name navigation__user-name_theme_white" : "navigation__user-name"}>Грета</p>
+                    <button className={location.pathname === '/saved-news' ? "navigation__button navigation__button_theme_white" : "navigation__button"} onClick={signOut}>
+                        <p className={location.pathname === '/saved-news' ? "navigation__user-name navigation__user-name_theme_white" : "navigation__user-name"}>{currentUser.name}</p>
                         <img src={location.pathname === '/saved-news' ? logoutWhiteLogo : logoutLogo} alt="иконка выхода из профиля" />
                     </button>
                 :

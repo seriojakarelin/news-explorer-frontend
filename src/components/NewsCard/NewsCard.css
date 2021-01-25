@@ -11,9 +11,12 @@
     list-style-type: none;
 }
 
+.news-card__link {
+    text-decoration: none;
+}
+
 .news-card__picture {
-    object-fit: cover;
-    object-position: center;
+    object-fit: fill;
     height: 272px;
     width: 100%;
 }
@@ -81,6 +84,7 @@
     box-shadow: none;
     cursor: pointer;
     transition: background-image .3s linear;
+    outline: none;
 }
 
 .news-card__save-button:hover {
@@ -103,6 +107,7 @@
     box-shadow: none;
     cursor: pointer;
     transition: background-image .3s linear;
+    outline: none;
 }
 
 .news-card__trash-button {
@@ -121,6 +126,26 @@
     box-shadow: none;
     cursor: pointer;
     transition: background-image .3s linear;
+    outline: none;
+}
+
+.news-card__keyword {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background-color: #FFF;
+    border-radius: 10px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.17;
+    padding: 8px 12px 8px;
+    box-sizing: border-box;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .news-card__trash-button:hover {
@@ -144,26 +169,6 @@
     padding-bottom: 14px;
     padding-top: 15px;
     visibility: hidden;
-}
-
-.news-card__trash-button::after {
-    content: "Погода";
-    background-color: #FFF;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: 0;
-    right: 276px;
-    border-radius: 10px;
-    color: #000;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.17;
-    padding: 8px 12px 8px;
-    box-sizing: border-box;
-    height: 40px;
 }
 
 .news-card__trash-button:hover::before {

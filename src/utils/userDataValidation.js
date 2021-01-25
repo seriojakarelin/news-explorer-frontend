@@ -1,4 +1,4 @@
-export const userDataValidationParams = {
+export const userDataValidation = {
     userEmail: {
         required: (value) => {
             return value === "";

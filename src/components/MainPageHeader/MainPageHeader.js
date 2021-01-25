@@ -3,6 +3,7 @@ import AppHeader from '../AppHeader/AppHeader';
 import SearchForm from '../SearchForm/SearchForm';
 import SavedNewsInfo from '../SavedNewsInfo/SavedNewsInfo';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { Route, Switch } from 'react-router-dom';
 
 function MainPageHeader(props) {
@@ -29,11 +30,22 @@ function MainPageHeader(props) {
               handleExitButton={handleExitButton}
               handleMenuIsOpened={handleMenuIsOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
+              setIsLoggedIn={props.setIsLoggedIn}
+              setIsCardListShown={props.setIsCardListShown}
             />
-            <SearchForm />
+            <SearchForm 
+              setArticlesData={props.setArticlesData}
+              setIsPreloaderShown={props.setIsPreloaderShown}
+              setIsCardListShown={props.setIsCardListShown}
+              setIsNotFoundShown={props.setIsNotFoundShown}
+              setSearchValue={props.setSearchValue}
+              searchValue={props.searchValue}
+              displayArticles={props.displayArticles}
+              articlesData={props.articlesData}
+            />
           </Route>
           <Route path='/saved-news'>
-            <SavedNewsHeader 
+            <ProtectedRoute path='/saved-news' component={SavedNewsHeader} 
               loggedIn={props.loggedIn}
               handleMenuIsOpened={handleMenuIsOpened}
               menuIsOpened={menuIsOpened}
@@ -41,7 +53,10 @@ function MainPageHeader(props) {
               isPopupOpened={isPopupOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
             />
-            <SavedNewsInfo />
+            <ProtectedRoute path='/saved-news' component={SavedNewsInfo}  
+              loggedIn={props.loggedIn}
+              savedArticles={props.savedArticles}
+            />
           </Route>
         </Switch>
       </section>

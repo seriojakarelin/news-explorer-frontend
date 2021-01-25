@@ -8,8 +8,10 @@ function AppHeader(props) {
             <div className="app-header__logo">News Explorer</div>
             <Navigation 
               loggedIn={props.loggedIn}
+              setIsLoggedIn={props.setIsLoggedIn}
               menuIsOpened={props.menuIsOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
+              setIsCardListShown={props.setIsCardListShown}
             />
             {props.menuIsOpened || props.isPopupOpened
             ?

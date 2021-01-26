@@ -6,8 +6,6 @@ function SearchForm(props) {
   const [isSearchFormValid, setSearchFormValid] = React.useState(false);
   const [isErrorShown, setErrorShown] = React.useState(false);
 
-  console.log(props.articlesData)
-
   function checkValidity(inputValue) {
     if (inputValue.validity.valueMissing) {
       setErrorShown(true);

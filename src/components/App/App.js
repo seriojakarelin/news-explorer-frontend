@@ -24,11 +24,7 @@ function App() {
   const [isPopupRegisterOpen, setIsPopupRegisterOpen] = React.useState(false);
   const [isPopupInfoOpen, setIsPopupInfoOpen] = React.useState(false);
   const [isLoadComplete, setIsLoadComplete] = React.useState(false);
-
-  console.log(articlesData)
-  console.log(savedArticles)
-  console.log(loggedIn)
-  console.log(isNotFoundShown)
+  const [isMoreButtonShown, setIsMoreButtonShown] = React.useState(true);
 
   React.useEffect(() => {
     window.addEventListener('keyup', (e) => {
@@ -72,9 +68,7 @@ function App() {
 
   React.useEffect(() => {
     const storageArticles = Array.from(JSON.parse(localStorage.getItem('articles')));
-    console.log(storageArticles)
     if (storageArticles.length === 0) {
-      setSearchValue(localStorage.getItem('search-value'));
       setIsCardListShown(false);
     } else {
       setSearchValue(localStorage.getItem('search-value'))
@@ -83,10 +77,22 @@ function App() {
     }
   }, []);
 
-  function displayArticles(arr) {
+  function displayArticles() {
     const storageArticles = JSON.parse(localStorage.getItem('articles'))
     setArticlesData(storageArticles.splice(0, articlesAmount));
-    return articlesData;
+
+    if (storageArticles <= articlesAmount) {
+      setIsMoreButtonShown(false);
+    }
+  }
+
+  function showMoreArticles() {
+    const storageArticles = JSON.parse(localStorage.getItem('articles'));
+    setArticlesData(storageArticles.splice(0, articlesData.length + articlesAmount));
+
+    if (articlesData.length >= storageArticles.length) {
+      setIsMoreButtonShown(false);
+    }
   }
 
   function handleLoggedIn() {
@@ -161,6 +167,8 @@ function App() {
             setSavedArticles={setSavedArticles}
             isSavedCardListShown={isSavedCardListShown}
             displayArticles={displayArticles}
+            showMoreArticles={showMoreArticles}
+            isMoreButtonShown={isMoreButtonShown}
           />
           <Footer />
           <PopupLogin 

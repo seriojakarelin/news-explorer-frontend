@@ -50,7 +50,7 @@ function NewsCardList(props) {
                             />
                         )}
                     </ul>
-                <button className="news-card-list__plus-button" type="button" style={{ display: `${location.pathname === '/saved-news' ? 'none' : ''}` }}>Показать ещё</button>
+                {props.isMoreButtonShown && <button className="news-card-list__plus-button" type="button" style={{ display: `${location.pathname === '/saved-news' ? 'none' : ''}` }} onClick={props.showMoreArticles}>Показать ещё</button>}
         </section>
         }
       </>  

@@ -24,6 +24,8 @@ function Main(props) {
             isSavedCardListShown={props.isSavedCardListShown}
             handleSaveArticle={props.handleSaveArticle}
             displayArticles={props.displayArticles}
+            showMoreArticles={props.showMoreArticles}
+            isMoreButtonShown={props.isMoreButtonShown}
         />
         }
         <Switch>

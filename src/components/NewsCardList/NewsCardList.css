@@ -45,6 +45,7 @@
     cursor: pointer;
     width: 288px;
     transition: background-color .3s linear;
+    outline: none;
 }
 
 .news-card-list__plus-button:hover {

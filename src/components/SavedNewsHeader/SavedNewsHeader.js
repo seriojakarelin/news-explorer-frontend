@@ -10,6 +10,7 @@ function SavedNewsHeader(props) {
                     loggedIn={props.loggedIn}
                     menuIsOpened={props.menuIsOpened}
                     handlePopupRegisterOpen={props.handlePopupRegisterOpen}
+                    setIsLoggedIn={props.setIsLoggedIn}
                 />
                 {props.menuIsOpened || props.isPopupOpened
                 ?

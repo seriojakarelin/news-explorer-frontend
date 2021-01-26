@@ -10,6 +10,8 @@ function Navigation(props) {
     const currentUser = React.useContext(CurrentUserContext);
 
     function signOut() {
+        localStorage.removeItem('search-value');
+        localStorage.removeItem('articles');
         localStorage.removeItem('jwt');
         props.setIsLoggedIn(false);
     }

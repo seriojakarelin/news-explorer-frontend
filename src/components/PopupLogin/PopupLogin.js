@@ -55,17 +55,19 @@ function PopupLogin(props) {
         MainApi.authorize(formValues.userEmail, formValues.userPassword)
         .then((data) => {
             if (data.token) {
-                console.log(data.token)
                 props.handleLoggedIn();
                 props.setIsPopupLoginOpen(false);
+                return MainApi.getUser(data.token)
+                .then((res) => {
+                    props.setUserData(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
             }
-            return MainApi.getUser(data.token)
-            .then((res) => {
-                props.setUserData(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+        })
+        .catch((err) => {
+            console.log(err);
         })
     }
 

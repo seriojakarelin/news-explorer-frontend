@@ -12,6 +12,7 @@ function AppHeader(props) {
               menuIsOpened={props.menuIsOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
               setIsCardListShown={props.setIsCardListShown}
+              setSearchValue={props.setSearchValue}
             />
             {props.menuIsOpened || props.isPopupOpened
             ?

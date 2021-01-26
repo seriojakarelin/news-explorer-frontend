@@ -67,7 +67,12 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    const storageArticles = Array.from(JSON.parse(localStorage.getItem('articles')));
+    const storageData = JSON.parse(localStorage.getItem('articles'));
+    if (storageData == null) {
+      setIsCardListShown(false);
+      return
+    }
+    const storageArticles = storageData;
     if (storageArticles.length === 0) {
       setIsCardListShown(false);
     } else {

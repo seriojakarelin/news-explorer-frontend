@@ -30,8 +30,9 @@ function MainPageHeader(props) {
               handleExitButton={handleExitButton}
               handleMenuIsOpened={handleMenuIsOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
-              setIsLoggedIn={props.setIsLoggedIn}
+              stIsLoggedIn={props.setIsLoggedIn}e
               setIsCardListShown={props.setIsCardListShown}
+              setSearchValue={props.setSearchValue}
             />
             <SearchForm 
               setArticlesData={props.setArticlesData}
@@ -52,6 +53,8 @@ function MainPageHeader(props) {
               handleExitButton={handleExitButton}
               isPopupOpened={isPopupOpened}
               handlePopupRegisterOpen={props.handlePopupRegisterOpen}
+              setIsLoggedIn={props.setIsLoggedIn}
+              setSearchValue={props.setSearchValue}
             />
             <ProtectedRoute path='/saved-news' component={SavedNewsInfo}  
               loggedIn={props.loggedIn}

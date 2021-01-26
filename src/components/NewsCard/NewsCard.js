@@ -2,10 +2,12 @@ import React from 'react';
 import { useLocation } from "react-router-dom";
 import * as MainApi from '../../utils/MainApi';
 import { months } from '../../utils/constants';
+import {CurrentUserContext} from '../../context/CurrentUserContext';
 
 function NewsCard(props) {
 
     const location = useLocation();
+    const currentUser = React.useContext(CurrentUserContext);
     const [saveButtonClicked, setSaveButtonClicked] = React.useState(false);
 
     function handleSaveArticle(savedArticle) {
@@ -32,6 +34,7 @@ function NewsCard(props) {
                 text: props.description,
                 source: props.source,
                 keyword: props.searchValue,
+                owner: currentUser._id,
             })
         }
     }

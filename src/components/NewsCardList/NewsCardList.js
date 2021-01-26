@@ -24,6 +24,7 @@ function NewsCardList(props) {
                             loggedIn={props.loggedIn}
                             searchValue={props.searchValue}
                             keyword={article.keyword}
+                            owner={article.owner}
                             setSavedArticles={props.setSavedArticles}
                             savedArticles={props.savedArticles}
                         />

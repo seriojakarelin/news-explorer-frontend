@@ -46,6 +46,9 @@ function App() {
           setUserData(res);
         }
       })
+      .catch((err) => {
+        console.log(err);
+      })
     } else {
       setIsLoadComplete(true);
     }
@@ -62,6 +65,9 @@ function App() {
           setIsNotFoundShown(false)
           setSavedArticles(res.reverse());
         }
+      })
+      .catch((err) => {
+        console.log(err);
       })
     }
   }, []);

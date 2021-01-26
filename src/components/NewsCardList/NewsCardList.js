@@ -14,7 +14,7 @@ function NewsCardList(props) {
                     {props.savedArticles.map((article) => 
                         <NewsCard 
                             id={article._id}
-                            key={article.url}
+                            key={article.id}
                             link={article.link}
                             title={article.title}
                             description={article.text}
@@ -34,9 +34,9 @@ function NewsCardList(props) {
         <section className={props.isCardListShown ? "news-card-list" : "news-card-list_disabled"}>
                 <h2 className="news-card-list__heading">Результаты поиска</h2>
                     <ul className="news-card-list__list">
-                        {props.articlesData.map((article) => 
+                        {props.articlesData.map((article, index) => 
                             <NewsCard 
-                                key={article.url}
+                                key={index}
                                 link={article.url}
                                 title={article.title}
                                 description={article.description}

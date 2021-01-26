@@ -14,3 +14,6 @@ export const months = [
 ];
 
 export const articlesAmount = 3;
+
+export const declinableWords = ["сохраненная статья", "сохраненные статьи", "сохраненных статей"];
+export const declinableendings = ["-й", "-м", "-и"];

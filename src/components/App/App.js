@@ -80,8 +80,9 @@ function App() {
   function displayArticles() {
     const storageArticles = JSON.parse(localStorage.getItem('articles'))
     setArticlesData(storageArticles.splice(0, articlesAmount));
+    setIsMoreButtonShown(true);
 
-    if (storageArticles <= articlesAmount) {
+    if (storageArticles.length < articlesAmount + 1) {
       setIsMoreButtonShown(false);
     }
   }
